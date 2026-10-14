@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ClearHD Store - Anti Burik By Farida</title>
+<style>
+body{margin:0;font-family:sans-serif;background:#050a1a;color:white;background-image:radial-gradient(circle at 50% 0%,#0a2a7a 0%,#050a1a 60%)}
+.hero{padding:20px;text-align:center;background:linear-gradient(180deg,#0d3bd1,#081a5c);border-bottom:3px solid #2a7bff;box-shadow:0 0 30px #1a5cff}
+.hero h1{margin:0;font-size:32px;text-shadow:0 0 15px #5aa2ff;color:#fff;letter-spacing:1px}
+.hero p{color:#aaccff;margin:5px 0 0}
+.qr-box{background:white;padding:10px;border-radius:16px;display:inline-block;margin:15px 0;box-shadow:0 0 20px #3a9bff}
+.qr-box img{width:180px;height:180px;display:block}
+.card{background:linear-gradient(135deg,#0e1e4a,#132e7a);margin:12px;padding:16px;border-radius:16px;border:1px solid #2a5bff;box-shadow:0 0 15px rgba(42,91,255,0.3)}
+.step{display:flex;align-items:center;background:rgba(0,0,0,0.3);border:1px solid #2a5bff;border-radius:10px;padding:8px 12px;margin:8px 0;font-size:13px;font-weight:bold}
+.step span{margin-right:10px;font-size:18px}
+button{width:100%;padding:14px;border:0;border-radius:12px;font-weight:bold;background:linear-gradient(90deg,#1a5cff,#00c6ff);color:white;margin-top:10px;box-shadow:0 0 15px #1a5cff;font-size:15px}
+input{width:100%;margin-top:10px}
+img.prev,video.prev{width:100%;border-radius:10px;margin-top:12px;background:#000;border:1px solid #2a5bff}
+.small{font-size:11px;color:#88aaff}
+.badge{background:#00c6ff;color:#000;padding:3px 8px;border-radius:20px;font-size:10px;font-weight:bold}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<h1>CLEARHD STORE</h1>
+<p>HD Status WA Anti Burik - By Farida</p>
+
+<div class="qr-box">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://wa.me/62895329079485?text=Halo%20Kak%20Farida%20mau%20order%20web%20ClearHD%20Store">
+</div>
+<p style="font-weight:bold;margin:0">SCAN HERE!</p>
+
+<div style="text-align:left;max-width:320px;margin:15px auto 0">
+<div class="step"><span>📱</span> 1 - SCAN QR</div>
+<div class="step"><span>📝</span> 2 - INPUT NOMINAL / CHAT ADMIN</div>
+<div class="step"><span>✅</span> 3 - TF DONE, KIRIM BUKTI SCREENSHOT</div>
+</div>
+</div>
+
+<div class="card">
+<h3>📸 1. HD Foto <span class="badge">NO BLUR</span></h3>
+<p class="small">Upload foto burik, jadi HD 100% tanpa pecah</p>
+<input type="file" id="foto" accept="image/*">
+<img id="hFoto" class="prev">
+<button onclick="dlFoto()">⬇️ Download Foto HD</button>
+</div>
+
+<div class="card"
+<h3>🎬 2. HD Video Status</h3>
+<p class="small">Biar video SW tidak buram & pecah</p>
+<input type="file" id="video" accept="video/*">
+<video id="hVideo" class="prev" controls></video>
+</div>
+
+<div class="card" style="background:linear-gradient(135deg,#001a4d,#0d3bd1);border-color:#00c6ff">
+<h3>🛒 JASA BIKIN WEB CLEARHD?</h3>
+<p style="font-size:13px">Punya web keren kayak gini cuma 25K<br>Full jadi milik kamu, bisa jual lagi untung 100%<br><br><b>Admin: 62895329079485</b></p>
+<button onclick="location.href='https://wa.me/62895329079485?text=Halo%20Kak%20Farida%20aku%20mau%20beli%20web%20ClearHD%20Store%20dong'">💬 CHAT ADMIN SEKARANG</button>
+<p class="small">QR di atas langsung ke WA kamu otomatis</p>
+</div>
+
+<script>
+let c=document.createElement('canvas');
+let iFoto=document.getElementById('foto');
+let hFoto=document.getElementById('hFoto');
+iFoto.addEventListener('change',e=>{
+ let r=new FileReader();
+ r.onload=ev=>{
+  let im=new Image();
+  im.onload=()=>{
+   c.width=im.width;c.height=im.height;
+   c.getContext('2d').drawImage(im,0,0);
+   hFoto.src=c.toDataURL('image/jpeg',1.0);
+  };
+  im.src=ev.target.result;
+ };
+ r.readAsDataURL(e.target.files[0]);
+});
+function dlFoto(){
+ if(!hFoto.src){alert('Upload foto dulu kak!');return;}
+ let a=document.createElement('a');
+ a.download='ClearHD-Farida-HD.jpg';
+ a.href=c.toDataURL('image/jpeg',1.0);
+ a.click();
+}
+document.getElementById('video').addEventListener('change',e=>{
+ document.getElementById('hVideo').src=URL.createObjectURL(e.target.files[0]);
+});
+</script>
+</body>
+</html>
