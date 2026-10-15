@@ -3,54 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FARIDA-STORE</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+<title>FARIDA-STORE - HD 4K BOOSTER</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#08080a;color:#fff;font-family:'Poppins',sans-serif}
-.bg{position:fixed;inset:0;background:radial-gradient(circle at 50% 0%, #ff00cc44, transparent 50%), radial-gradient(circle at 0% 100%, #0066ff44, transparent 50%);z-index:-1}
-header{padding:30px 20px;text-align:center}
-.logo{font-family:'Orbitron',sans-serif;font-size:36px;font-weight:800;letter-spacing:2px;background:linear-gradient(90deg,#ff00cc,#00e5ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.tagline{margin-top:8px;color:#888;font-size:12px;letter-spacing:6px}
-.hero{padding:30px 20px;text-align:center}
-.hero h2{font-size:26px}
-.hero h2 span{color:#ff00cc}
-.card{max-width:380px;margin:30px auto;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:24px;padding:24px;backdrop-filter:blur(20px)}
-.btn{width:100%;padding:16px;border:none;border-radius:30px;font-weight:700;font-size:15px}
-.btn-pink{background:linear-gradient(90deg,#ff00cc,#7a00ff);color:#fff;box-shadow:0 0 25px #ff00cc66}
-.btn-wa{background:#ffffff10;border:1px solid #25D366;color:#25D366;margin-top:12px}
-#preview img{width:100%;border-radius:14px;margin-top:15px}
-footer{margin-top:40px;padding:20px;text-align:center;color:#444;font-size:11px}
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap');
+  body{margin:0;min-height:100vh;background:#12001f;background:radial-gradient(circle at top,#4a0a6e 0%,#12001f 60%,#000 100%);color:white;font-family:'Poppins',sans-serif;display:flex;justify-content:center;padding:20px;text-align:center}
+ .card{width:100%;max-width:400px}
+ .title{font-weight:900;font-size:30px;color:#d6a4ff;letter-spacing:2px;text-shadow:0 0 15px #ff00ff}
+ .sub{font-size:10px;letter-spacing:4px;opacity:.6;margin-bottom:15px}
+  h2{font-size:20px;margin:18px 0 4px} h2 span{color:#ff5cff}
+ .small{font-size:12px;opacity:.5;margin-bottom:18px}
+ .box{background:rgba(255,255,255,.06);border:1px solid rgba(255,0,255,.25);border-radius:22px;padding:18px;backdrop-filter:blur(10px)}
+  input[type=file]{display:none}
+ .upload-label{display:block;border:1.5px dashed #ff5cff;padding:16px;border-radius:14px;cursor:pointer;background:rgba(255,0,255,.08);margin-bottom:12px}
+  #preview,#canvas{width:100%;border-radius:16px;margin-top:12px;display:none;box-shadow:0 0 25px #ff00ff55}
+ .btn{width:100%;padding:14px;border:none;border-radius:30px;font-weight:800;cursor:pointer;margin-top:12px;color:white}
+  #processBtn{display:none;background:linear-gradient(90deg,#ff00cc,#7a00ff);box-shadow:0 0 15px #ff00cc88}
+  #downloadBtn{display:none;background:linear-gradient(90deg,#00ff88,#00aaff)}
+  #waBtn{display:block;background:transparent;border:1px solid #00ff88;color:#00ff88;margin-top:12px}
+  #faridaImg{width:100%;border-radius:16px;box-shadow:0 0 20px #ff00ff44}
+ .footer{margin-top:30px;font-size:10px;opacity:.4}
 </style>
 </head>
 <body>
-<div class="bg"></div>
-<header>
-<div class="logo">FARIDA-STORE</div>
-<div class="tagline">HD 4K BOOSTER</div>
-</header>
-<div class="hero">
-<h2>Foto Buram Jadi <span>HD Jernih</span></h2>
-<p style="color:#666;margin-top:10px;font-size:14px">Cocok buat SW, PP, Story IG</p>
 <div class="card">
-<p style="font-size:14px">📸 Pilih Foto Kamu</p>
-<input type="file" id="file" accept="image/*" style="margin:15px 0;color:#888">
-<div id="preview"></div>
-<button class="btn btn-pink" onclick="document.getElementById('file').click()">FARIDA-STORE BOOST</button>
-<button class="btn btn-wa" onclick="window.open('https://wa.me/628xxxx','_blank')">Order di WhatsApp</button>
+  <div class="title">FARIDA-STORE</div>
+  <div class="sub">HD 4K BOOSTER</div>
+  <h2>Foto Buram Jadi <span>HD Jernih</span></h2>
+  <div class="small">Cocok buat SW, PP, Story IG</div>
+
+  <div class="box">
+    <label for="fileInput" class="upload-label">📸 Pilih Foto Kamu<br><small style="opacity:.6">Tap disini untuk galeri</small></label>
+    <input type="file" id="fileInput" accept="image/*">
+
+    <!-- Gambar anime bawaan -->
+    <img id="faridaImg" src="https://i.ibb.co/placeholder.jpg" alt="Farida Project" style="display:none">
+    <!-- GANTI SRC DI ATAS KALO PUNYA LINK GAMBAR SENDIRI -->
+
+    <img id="preview" />
+    <canvas id="canvas"></canvas>
+
+    <button class="btn" id="processBtn">FARIDA-STORE BOOST ✨</button>
+    <button class="btn" id="downloadBtn">⬇ DOWNLOAD HASIL HD 4K</button>
+    <button class="btn" id="waBtn">Order di WhatsApp</button>
+  </div>
+
+  <div class="footer">© FARIDA-STORE • Bandar Lampung • WA: 0895-3290-79485</div>
 </div>
-</div>
-<footer>© FARIDA-STORE • Bandar Lampung</footer>
+
 <script>
-document.getElementById('file').addEventListener('change',e=>{
- const f=e.target.files[0];
- if(f){
-   const im=document.createElement('img');
-   im.src=URL.createObjectURL(f);
-   document.getElementById('preview').innerHTML='';
-   document.getElementById('preview').appendChild(im);
- }
-});
+const fileInput = document.getElementById('fileInput');
+const preview = document.getElementById('preview');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const processBtn = document.getElementById('processBtn');
+const downloadBtn = document.getElementById('downloadBtn');
+const waBtn = document.getElementById('waBtn');
+const waNumber = "62895329079485";
+let loadedImg = null;
+
+fileInput.onchange = e => {
+  const file = e.target.files[0];
+  if(!file) return;
+  const url = URL.createObjectURL(file);
+  loadedImg = new Image();
+  loadedImg.onload = () => {
+    preview.src = url;
+    preview.style.display = 'block';
+    canvas.style.display = 'none';
+    processBtn.style.display = 'block';
+    downloadBtn.style.display = 'none';
+    processBtn.innerText = 'FARIDA-STORE BOOST ✨ - PROSES HD';
+  };
+  loadedImg.src = url;
+};
+
+processBtn.onclick = () => {
+  if(!loadedImg){ alert('Pilih foto dulu ya!'); return; }
+  const W = 2160, H = 3840;
+  let scale = Math.max(W/loadedImg.width, H/loadedImg.height);
+  let nw = loadedImg.width*scale, nh = loadedImg.height*scale;
+  canvas.width = W; canvas.height = H;
+  ctx.filter = 'blur(40px) brightness(0.5) saturate(1.5)';
+  ctx.drawImage(loadedImg, 0, 0, W, H);
+  ctx.filter = 'none';
+  ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(loadedImg, (W-nw)/2, (H-nh)/2, nw, nh);
+  ctx.filter = 'contrast(1.3) saturate(1.4) brightness(1.05)';
+  ctx.drawImage(canvas, 0, 0);
+  ctx.filter = 'none';
+  let grad = ctx.createRadialGradient(W/2,H/2,0,W/2,H/2,W*0.9);
+  grad.addColorStop(0,'rgba(0,0,0,0)'); grad.addColorStop(1,'rgba(255,0,200,0.25)');
+  ctx.fillStyle = grad; ctx.fillRect(0,0,W,H);
+
+  canvas.style.display = 'block';
+  preview.style.display = 'none';
+  downloadBtn.style.display = 'block';
+  processBtn.innerText = '✅ BERHASIL JADI HD 4K!';
+};
+
+downloadBtn.onclick = () => {
+  const a = document.createElement('a');
+  a.download = `FARIDA-HD4K-${Date.now()}.png`;
+  a.href = canvas.toDataURL('image/png', 1.0);
+  a.click();
+};
+
+waBtn.onclick = () => {
+  const text = encodeURIComponent("Halo Kak Farida 👋 Saya habis coba HD Booster di website FARIDA-STORE, hasilnya keren! Mau tanya order dong 😊");
+  window.open(`https://wa.me/${waNumber}?text=${text}`, "_blank");
+};
 </script>
 </body>
 </html>
