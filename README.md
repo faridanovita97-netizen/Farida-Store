@@ -1,1 +1,0 @@
-# clearhd-store
